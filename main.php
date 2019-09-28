@@ -1,27 +1,31 @@
-Checkbox: <input type="checkbox" id="myCheck" onclick="myFunction()">
+<p id="p">selectedIndex: 0</p>
 
-<p id="text" style="display:none">Checkbox is CHECKED!</p>
+<select id="select" onchange="myFunction()">
+  <option selected>Option A</option>
+  <option>Option B</option>
+  <option>Option C</option>
+  <option>Option D</option>
+  <option>Option E</option>
+</select>
+
 <script>
 function myFunction() {
-  // Get the checkbox
-  var checkBox = document.getElementById("myCheck");
-  // Get the output text
-  var text = document.getElementById("text");
+  var selectElem = document.getElementById('select')
+  var pElem = document.getElementById('p')
 
-  // If the checkbox is checked, display the output text
-  if (checkBox.checked == true){
-    text.style.display = "block";
-  } else {
-    text.style.display = "none";
-  }
+  var index = selectElem.selectedIndex;
+    // Add that data to the <p>
+    pElem.innerHTML = 'selectedIndex: ' + index;
+
 }
 </script>
 
-<?php 
+<?php
+$array1= array('Mathematics','Physics');
+array_push($array1,'Chemistry','Biology');
+array_push($array1,'java');
+print_r($array1);
 
-$dateOfBirth = "17-10-1985";
-$today = date("Y-m-d");
-$diff = date_diff(date_create($dateOfBirth), date_create($today));
-echo 'Age is '.$diff->format('%y');
-
+echo $array1[0];
+echo $array1[2];
 ?>
